@@ -1,4 +1,4 @@
-package com.example.notes.ui.notifications
+package com.example.notes.ui.note
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.notes.R
 
-class NotificationsFragment : Fragment() {
+class NoteFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
+    private lateinit var noteViewModel: NoteViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_notifications, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        noteViewModel =
+                ViewModelProviders.of(this).get(NoteViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_note, container, false)
+        val textView: TextView = root.findViewById(R.id.text_note)
+        noteViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

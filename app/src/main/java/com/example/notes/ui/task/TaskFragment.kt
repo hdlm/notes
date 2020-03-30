@@ -1,4 +1,4 @@
-package com.example.notes.ui.dashboard
+package com.example.notes.ui.task
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.notes.R
 
-class DashboardFragment : Fragment() {
+class TaskFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var taskViewModel: TaskViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProviders.of(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        taskViewModel =
+                ViewModelProviders.of(this).get(TaskViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_task, container, false)
+        val textView: TextView = root.findViewById(R.id.text_task)
+        taskViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
